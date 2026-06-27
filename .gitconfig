@@ -1,3 +1,20 @@
 [user]
     name = Sergio Paulo Villegas Flores
     email = sp.villegas98@gmail.com
+
+[core]
+    autocrlf = input
+    editor = code --wait
+
+[push]
+    default = current
+
+[pull]
+    rebase = false
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    cm = commit -m
+    lg = log --oneline --graph --decorate --all

@@ -1,0 +1,41 @@
+:root {
+  /* Base en px (simple, directa) */
+  --core-space-2: 2px;
+  --core-space-4: 4px;
+  --core-space-6: 6px;
+  --core-space-8: 8px;
+  --core-space-12: 12px;
+  --core-space-16: 16px;
+  --core-space-20: 20px;
+  --core-space-24: 24px;
+
+  /* Equivalentes en rem (asumiendo 1rem = 16px) */
+  --core-space-2-rem: 0.125rem;  /* 2px  */
+  --core-space-4-rem: 0.25rem;   /* 4px  */
+  --core-space-6-rem: 0.375rem;  /* 6px  */
+  --core-space-8-rem: 0.5rem;    /* 8px  */
+  --core-space-12-rem: 0.75rem;  /* 12px */
+  --core-space-16-rem: 1rem;     /* 16px */
+  --core-space-20-rem: 1.25rem;  /* 20px */
+  --core-space-24-rem: 1.5rem;   /* 24px */
+
+  /* Equivalentes en em (para componentes que dependan del font-size local) */
+  --core-space-2-em: 0.125em;
+  --core-space-4-em: 0.25em;
+  --core-space-6-em: 0.375em;
+  --core-space-8-em: 0.5em;
+  --core-space-12-em: 0.75em;
+  --core-space-16-em: 1em;
+  --core-space-20-em: 1.25em;
+  --core-space-24-em: 1.5em;
+
+  /* Equivalentes en % (para layouts fluidos) */
+  --core-space-2-pct: 1%;
+  --core-space-4-pct: 2%;
+  --core-space-6-pct: 3%;
+  --core-space-8-pct: 4%;
+  --core-space-12-pct: 6%;
+  --core-space-16-pct: 8%;
+  --core-space-20-pct: 10%;
+  --core-space-24-pct: 12%;
+}

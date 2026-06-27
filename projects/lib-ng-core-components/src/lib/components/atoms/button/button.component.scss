@@ -1,0 +1,7 @@
+.button {
+  padding: var(--core-space-8) var(--core-space-12);
+  background: var(--core-color-primary);
+  color: var(--core-color-text-inverse);
+  border-radius: var(--core-radius-md);
+  transition: background var(--core-motion-fast);
+}

@@ -7,6 +7,10 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "lib-ng-core-components": ["./dist/lib-ng-core-components"],
+      "ng-core-components": ["./dist/ng-core-components"]
+    },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
@@ -21,5 +25,25 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ng-core-components/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ng-core-components/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/lib-ng-core-components/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/lib-ng-core-components/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo-app/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo-app/tsconfig.spec.json"
+    }
+  ]
 }

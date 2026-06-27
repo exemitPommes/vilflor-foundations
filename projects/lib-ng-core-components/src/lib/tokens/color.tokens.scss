@@ -1,0 +1,29 @@
+:root {
+  /* Brand */
+  --core-color-primary: #2563eb;
+  --core-color-primary-hover: #1d4ed8;
+  --core-color-primary-active: #1e40af;
+
+  --core-color-secondary: #64748b;
+  --core-color-secondary-hover: #475569;
+  --core-color-secondary-active: #334155;
+
+  /* Ghost */
+  --core-color-ghost-hover: rgba(37, 99, 235, 0.08);
+  --core-color-ghost-active: rgba(37, 99, 235, 0.16);
+
+  /* Text */
+  --core-color-text: #0f172a;
+  --core-color-text-muted: #64748b;
+  --core-color-text-inverse: #ffffff;
+
+  /* Background */
+  --core-color-background: #ffffff;
+  --core-color-background-muted: #f8fafc;
+
+  /* Border */
+  --core-color-border: #e2e8f0;
+
+  /* Focus */
+  --core-focus-ring: #93c5fd;
+}
