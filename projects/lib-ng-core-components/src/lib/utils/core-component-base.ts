@@ -1,16 +1,19 @@
 import { Input, HostBinding, Directive } from '@angular/core';
+import { ComponentSize, ComponentVariant} from './component.types';
+
+let nextUniqueId = 0;
 
 @Directive()
 export abstract class CoreComponentBase {
-  @Input() variant: string = 'primary';
-  @Input() size: string = 'md';
+  @Input() variant: ComponentVariant = 'primary';
+  @Input() size: ComponentSize = 'md';
   @Input() isDisabled = false;
   @Input() ariaLabel?: string;
   @Input() id?: string;
   @Input() dataId?: string;
   @Input() tabIndex?: number;
 
-  private _generatedId = `core-${Math.random().toString(36).slice(2)}`;
+  private _generatedId = `core-${nextUniqueId++}`;
 
   @HostBinding('attr.id') get hostId() {
     return this.id ?? this._generatedId;

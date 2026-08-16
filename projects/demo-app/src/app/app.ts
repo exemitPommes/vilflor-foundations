@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ButtonComponent } from 'lib-ng-core-components';
 
 @Component({
   selector: 'app-root',

@@ -5,3 +5,24 @@
   border-radius: var(--core-radius-md);
   transition: background var(--core-motion-fast);
 }
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  
+  border-radius: var(--core-radius-md);
+  font-family: var(--core-typography-manrope);
+
+  &.core-variant-primary {
+    background-color: var(--core-color-primary);
+    color: white;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

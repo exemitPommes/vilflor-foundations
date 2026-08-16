@@ -1,3 +1,8 @@
-<button class="button">
-  <ng-content></ng-content>
+<button class="button" [type]="type" [disabled]="isDisabled" [attr.aria-label]="ariaLabel"
+  [attr.tabindex]="tabIndex ?? (isDisabled ? -1 : 0)">
+  <ng-content select="[iconLeft]"></ng-content>
+  <span>
+    <ng-content></ng-content>
+  </span>
+  <ng-content select="[iconRight]"></ng-content>
 </button>

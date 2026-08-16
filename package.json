@@ -1,6 +1,6 @@
 {
   "name": "vilflor-foundations",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -17,6 +17,7 @@
     "@angular/forms": "^21.2.0",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",
+    "lib-ng-core-components": "file:dist/lib-ng-core-components",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
