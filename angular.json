@@ -7,32 +7,6 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ng-core-components": {
-      "projectType": "library",
-      "root": "projects/ng-core-components",
-      "sourceRoot": "projects/ng-core-components/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular/build:ng-packagr",
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ng-core-components/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ng-core-components/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-            "tsConfig": "projects/ng-core-components/tsconfig.spec.json"
-          }
-        }
-      }
-    },
     "lib-ng-core-components": {
       "projectType": "library",
       "root": "projects/lib-ng-core-components",
@@ -82,7 +56,10 @@
                 "input": "projects/demo-app/public"
               }
             ],
-            "styles": ["projects/demo-app/src/styles.scss"]
+            "styles": [
+            "projects/lib-ng-core-components/src/lib/tokens/tokens.scss",
+            "projects/demo-app/src/styles.scss"
+          ]
           },
           "configurations": {
             "production": {
