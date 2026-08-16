@@ -8,8 +8,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "lib-ng-core-components": ["./dist/lib-ng-core-components"],
-      "ng-core-components": ["./dist/ng-core-components"]
+      "lib-ng-core-components": ["./projects/lib-ng-core-components/src/public-api.ts"]
     },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
@@ -27,12 +26,6 @@
   },
   "files": [],
   "references": [
-    {
-      "path": "./projects/ng-core-components/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/ng-core-components/tsconfig.spec.json"
-    },
     {
       "path": "./projects/lib-ng-core-components/tsconfig.lib.json"
     },
