@@ -7,8 +7,9 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "baseUrl": "./",
     "paths": {
-      "lib-ng-core-components": ["./projects/lib-ng-core-components/src/public-api.ts"]
+      "lib-ng-core-components": ["projects/lib-ng-core-components/src/public-api.ts"]
     },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
