@@ -1,28 +1,82 @@
-.button {
-  padding: var(--core-space-8) var(--core-space-12);
-  background: var(--core-color-primary);
-  color: var(--core-color-text-inverse);
-  border-radius: var(--core-radius-md);
-  transition: background var(--core-motion-fast);
-}
-
 :host {
+  /* Layout & Box Model */
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: var(--core-space-8) var(--core-space-12);
   border: none;
-  cursor: pointer;
-  
   border-radius: var(--core-radius-md);
+
   font-family: var(--core-typography-manrope);
+  cursor: pointer;
+  transition: background var(--core-motion-fast), color var(--core-motion-fast);
 
   &.core-variant-primary {
     background-color: var(--core-color-primary);
-    color: white;
+    color: var(--core-color-text-inverse);
+
+    &:hover {
+      background-color: var(--core-color-primary-hover);
+    }
+
+    &:active {
+      background-color: var(--core-color-primary-active);
+    }
   }
 
-  &[disabled] {
+  &.core-variant-secondary {
+    background-color: var(--core-color-secondary);
+    color: var(--core-color-text-inverse);
+
+    &:hover {
+      background-color: var(--core-color-secondary-hover);
+    }
+
+    &:active {
+      background-color: var(--core-color-secondary-active);
+    }
+  }
+
+  &.core-variant-ghost {
+    &:hover {
+      background-color: var(--core-color-ghost-hover);
+    }
+
+    &:active {
+      background-color: var(--core-color-ghost-active);
+    }
+  }
+
+  &[disabled],
+  &.core-disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    pointer-events: none; /* Evita clicks si es un enlace <a> */
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--core-focus-ring);
+    outline-offset: 2px;
+  }
+
+  &.core-size-sm {
+    padding: var(--core-space-4) var(--core-space-8);
+    font-size: 0.875rem;
+  }
+
+  &.core-size-md {
+    padding: var(--core-space-8) var(--core-space-12);
+    font-size: 1rem;
+  }
+
+  &.core-size-lg {
+    padding: var(--core-space-12) var(--core-space-16);
+    font-size: 1.125rem;
+  }
+}
+
+/* Un pequeño extra para separar el texto de los iconos si los hay */
+.vf-button-content {
+  display: inline-flex;
+  margin: 0 var(--core-space-4);
 }

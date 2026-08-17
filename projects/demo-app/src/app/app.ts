@@ -4,7 +4,8 @@ import { ButtonComponent } from 'lib-ng-core-components';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, ButtonComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
