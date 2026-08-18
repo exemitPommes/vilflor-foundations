@@ -1,7 +1,7 @@
 :host {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: space-between;
   padding: var(--core-space-8) var(--core-space-12);
   border: none;
   border-radius: var(--core-radius-md);
@@ -72,10 +72,4 @@
     padding: var(--core-space-12) var(--core-space-16);
     font-size: 1.125rem;
   }
-}
-
-/* Un pequeño extra para separar el texto de los iconos si los hay */
-.vf-button-content {
-  display: inline-flex;
-  margin: 0 var(--core-space-4);
 }

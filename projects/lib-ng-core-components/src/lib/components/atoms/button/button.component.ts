@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
 
 export type ButtonType = 'button' | 'submit' | 'reset'; 
@@ -8,11 +8,10 @@ export type ButtonType = 'button' | 'submit' | 'reset';
   standalone: true,
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
+  host: {
+    '[attr.type]': 'type()',
+  }
 })
 export class ButtonComponent extends CoreInteractiveComponentBase {
-  @Input() type: ButtonType = 'button';
-
-  @HostBinding('attr.type') get hostType() {
-    return this.type;
-  }
+  readonly type = input<ButtonType>('button');
 }
