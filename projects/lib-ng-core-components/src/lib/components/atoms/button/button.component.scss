@@ -6,7 +6,7 @@
   border: none;
   border-radius: var(--core-radius-md);
 
-  font-family: var(--core-typography-manrope);
+  font-family: var(core-font-family);
   cursor: pointer;
   transition: background var(--core-motion-fast), color var(--core-motion-fast);
 

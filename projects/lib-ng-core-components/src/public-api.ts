@@ -3,6 +3,7 @@
  */
 
 export * from './lib/components/atoms/button/button.component';
+export * from './lib/components/atoms/card/card.component';
 
 /* export * from './lib/components/atoms';
 export * from './lib/tokens';

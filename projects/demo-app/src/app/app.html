@@ -6,12 +6,20 @@
   </p>
 </div>
 
-  <div #test height="200px" width="300px">
+  <div #test style="padding: 20px 10px;">
     <button vf-button>
-      <span iconRight>derecha</span>
-      <p>|Por defecto el contenido sin especificar|</p>
-      <span iconLeft>izquierda</span>
+      <span iconRight>| derecha</span>
+      <p>| Guardar |</p>
+      <span iconLeft>izquierda |</span>
     </button>
+  </div>
+
+  <div #cardContainer style="width: 400px; margin: 2rem; height: 400px;">
+    <vf-card variant="primary" size="lg">
+      <ng-container vf-card-header>Main title</ng-container>
+      <ng-container>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.</ng-container>
+      <ng-container vf-card-footer>Just a footer minding it's own business</ng-container>
+    </vf-card>
   </div>
 </main>
 
