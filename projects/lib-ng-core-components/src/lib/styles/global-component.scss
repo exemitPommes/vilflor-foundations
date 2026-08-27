@@ -1,0 +1,25 @@
+.vf-input-native {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-family: inherit;
+    font-size: var(--core-font-size-md);
+    padding: var(--core-space-8);
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    &::placeholder {
+        opacity: 1;
+        font-weight: var(--core-font-weight-medium);
+        color: var(--core-color-text-muted);
+    }
+}
