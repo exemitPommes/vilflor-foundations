@@ -40,6 +40,12 @@
       <!-- <input vf-input type="number" placeholder="no clue" [isDisabled]="true" /> -->
     </vf-input-form-field>
   </div>
+  
+  <div #optionContainer style="margin: 2rem; width: 300px;">
+    <vf-option variant="primary" value="huh" (selected)="optionSelected()">
+        <span> HUH </span>
+    </vf-option>
+  </div>
 </main>
 
 <router-outlet />

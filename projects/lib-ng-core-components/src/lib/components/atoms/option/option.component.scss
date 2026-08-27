@@ -1,0 +1,37 @@
+:host {
+    padding: var(--core-space-8) var(--core-space-12);
+    cursor: pointer;
+    background-color: transparent;
+    font-family: var(--core-font-family);
+    display: block;
+
+    &:hover {
+        &.core-variant-primary {
+            background-color: var(--core-color-primary-hover);
+        }
+
+        &.core-variant-secondary {
+            background-color: var(--core-color-secondary-hover);
+        }
+    }
+
+    &:active {
+        &.core-variant-primary {
+            background-color: var(--core-color-primary-active);
+        }
+
+        &.core-variant-secondary {
+            background-color: var(--core-color-secondary-active);
+        }
+    }
+    
+    &.vf-option-selected {
+        &.core-variant-primary {
+            background-color: var(--core-color-primary);
+        }
+    
+        &.core-variant-secondary {
+            background-color: var(--core-color-secondary);
+        }
+    }
+}
