@@ -1,0 +1,47 @@
+:host {
+    display: inline-block;
+    font-family: var(--core-font-family);
+    width: 100%;
+}
+
+.vf-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+    background: transparent;
+    text-align: left;
+    
+    border: 2px solid var(--core-color-border);
+    padding: var(--core-space-8) var(--core-space-12);
+    border-radius: var(--core-radius-md);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--core-font-size-md);
+    color: var(--core-color-text);
+
+    :host(.core-variant-primary) & {
+        border-color: var(--core-color-primary);
+    }
+    :host(.core-variant-secondary) & {
+        border-color: var(--core-color-secondary);
+    }
+}
+
+.vf-select-icon {
+    padding: var(--core-no-space) var(--core-space-4);
+    background: transparent;
+}
+
+.vf-select-dropdown {
+    border: 1px solid var(--core-color-text);
+    border-radius: var(--core-radius-md);
+    box-shadow: var(--core-shadow-md);
+    /* margin: 0;
+    position: absolute;
+    margin-top: 4px; */
+    background-color: var(--core-color-background);
+    width: inherit;
+    padding: var(--core-no-space);
+}

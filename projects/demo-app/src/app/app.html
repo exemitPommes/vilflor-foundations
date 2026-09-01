@@ -40,12 +40,29 @@
       <!-- <input vf-input type="number" placeholder="no clue" [isDisabled]="true" /> -->
     </vf-input-form-field>
   </div>
-  
+
   <div #optionContainer style="margin: 2rem; width: 300px;">
-    <vf-option variant="primary" value="huh" (selected)="optionSelected()">
-        <span> HUH </span>
+    <vf-option variant="primary" value="huh">
+      <span> HUH </span>
     </vf-option>
   </div>
+
+
+  <div #selectContainer style="margin: 2rem; width: 300px; height: 500px;">
+    <vf-select variant="primary" placeholder="Selecciona algo or else" [(currentValue)]="selectValue">
+      <!-- <span vf-select-icon>🔽</span>  -->
+      <vf-option value="1">
+        <span> Uno </span>
+      </vf-option>
+      <vf-option value="2">
+        <span> Dos </span>
+      </vf-option>
+      <vf-option value="3">
+        <span> Tres </span>
+      </vf-option>
+    </vf-select>
+  </div>
+
 </main>
 
 <router-outlet />

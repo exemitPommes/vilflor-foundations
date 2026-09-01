@@ -1,5 +1,6 @@
-import { Component, input, model, output } from '@angular/core';
+import { Component, computed, forwardRef, inject, input, model, output, signal } from '@angular/core';
 import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
+import { SelectComponent } from '../select/select.component';
 
 @Component({
     selector: 'vf-option',
@@ -8,21 +9,19 @@ import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-co
     styleUrl: './option.component.scss',
     host: {
         '(click)': 'handleOptionSelected()',
-        '[class.vf-option-selected]': 'isSelected',
+        '[class.vf-option-selected]': 'isSelected()',
         '[attr.role]': '"option"',
     }
 })
 export class OptionComponent extends CoreInteractiveComponentBase {
-    value = input.required();
-    selected = output<void>();
+    readonly value = input.required<string | number>();
+    
+    private readonly _select = inject(forwardRef(() => SelectComponent));
 
-    isSelected = false;
-    //value = model(''); //para controlar e valueChange tambien pero devolvemos el mismo codigo?
-    //non sense, value cambiara en cuanto el developer le asigne un valor al montar el componente
+    readonly isSelected = computed(() => this.value() === this._select.currentValue());
 
     handleOptionSelected(): void {
-        this.isSelected = true;
-        this.selected.emit();
+        this._select.selectOption(this.value());
     }
-    
+
 }

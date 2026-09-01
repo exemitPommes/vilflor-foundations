@@ -1,0 +1,18 @@
+<button
+    type="button" 
+    class="vf-select-trigger" 
+    [attr.popovertarget]="popoverId" 
+    popovertargetaction="toggle">
+    <span class="vf-select-value">
+        {{ displayText() }}
+    </span>
+
+    <span class="vf-select-icon">
+        <ng-content select="[vf-select-icon]">▼</ng-content>
+    </span>
+</button>
+
+
+<div [id]="popoverId" popover="auto" class="vf-select-dropdown">
+    <ng-content></ng-content>
+</div>

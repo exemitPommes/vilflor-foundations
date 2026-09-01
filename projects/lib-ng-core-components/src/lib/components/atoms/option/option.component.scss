@@ -4,6 +4,7 @@
     background-color: transparent;
     font-family: var(--core-font-family);
     display: block;
+    overflow: hidden;
 
     &:hover {
         &.core-variant-primary {
