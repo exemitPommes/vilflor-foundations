@@ -35,4 +35,21 @@
             background-color: var(--core-color-secondary);
         }
     }
+
+    &.core-disabled, &[disabled] {
+        opacity: 0.6;
+        background-color: var(--core-color-background-muted);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    
+    &.vf-option-active {
+        &.core-variant-primary {
+            background-color: var(--core-color-primary-hover);
+        }
+    
+        &.core-variant-secondary {
+            background-color: var(--core-color-secondary-hover);
+        }
+    }
 }

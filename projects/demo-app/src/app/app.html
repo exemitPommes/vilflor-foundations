@@ -7,7 +7,7 @@
   </div>
 
   <div #test style="padding: 20px 10px;">
-    <button vf-button>
+    <button vf-button [isDisabled]="true">
       <span iconRight>| derecha</span>
       <p>| Guardar |</p>
       <span iconLeft>izquierda |</span>
@@ -36,16 +36,16 @@
       <ng-container vf-post-input>
         <span> HUH </span>
       </ng-container>
-      <input vf-input type="number" placeholder="no clue" />
-      <!-- <input vf-input type="number" placeholder="no clue" [isDisabled]="true" /> -->
+      <!-- <input vf-input type="number" placeholder="no clue" /> -->
+      <input vf-input type="number" placeholder="no clue" [isDisabled]="true" />
     </vf-input-form-field>
   </div>
 
-  <div #optionContainer style="margin: 2rem; width: 300px;">
+ <!--  <div #optionContainer style="margin: 2rem; width: 300px;">
     <vf-option variant="primary" value="huh">
-      <span> HUH </span>
+      <span> ¡No se admiten opciones huérfanas! </span>
     </vf-option>
-  </div>
+  </div> -->
 
 
   <div #selectContainer style="margin: 2rem; width: 300px; height: 500px;">
@@ -54,7 +54,7 @@
       <vf-option value="1">
         <span> Uno </span>
       </vf-option>
-      <vf-option value="2">
+      <vf-option value="2" [isDisabled]="true">
         <span> Dos </span>
       </vf-option>
       <vf-option value="3">

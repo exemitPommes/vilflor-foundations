@@ -1,5 +1,6 @@
 <button
-    type="button" 
+    type="button"
+    [disabled]="isDisabled()"
     class="vf-select-trigger" 
     [attr.popovertarget]="popoverId" 
     popovertargetaction="toggle">
@@ -8,7 +9,11 @@
     </span>
 
     <span class="vf-select-icon">
-        <ng-content select="[vf-select-icon]">▼</ng-content>
+        @if (currentValue()) {
+            <span class="vf-clear-btn" (click)="clearSelection($event)">✕</span>
+        } @else {
+            <ng-content select="[vf-select-icon]">▼</ng-content>
+        }
     </span>
 </button>
 
