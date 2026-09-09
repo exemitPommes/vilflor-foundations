@@ -51,7 +51,7 @@
   <div #selectContainer style="margin: 2rem; width: 300px; height: 500px;">
     <vf-select variant="primary" placeholder="Selecciona algo or else" [(currentValue)]="selectValue">
       <!-- <span vf-select-icon>🔽</span>  -->
-      <vf-option value="1">
+      <vf-option value="1" >
         <span> Uno </span>
       </vf-option>
       <vf-option value="2" [isDisabled]="true">
@@ -59,6 +59,9 @@
       </vf-option>
       <vf-option value="3">
         <span> Tres </span>
+      </vf-option>
+      <vf-option value="4">
+        <span> Cuatro </span>
       </vf-option>
     </vf-select>
   </div>

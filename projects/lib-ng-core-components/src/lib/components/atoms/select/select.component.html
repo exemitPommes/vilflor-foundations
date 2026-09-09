@@ -18,6 +18,6 @@
 </button>
 
 
-<div [id]="popoverId" popover="auto" class="vf-select-dropdown">
+<div [id]="popoverId" popover="auto" class="vf-select-dropdown" (toggle)="onPopoverToggle($event)">
     <ng-content></ng-content>
 </div>

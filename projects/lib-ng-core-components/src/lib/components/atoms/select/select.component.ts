@@ -7,6 +7,8 @@ let nextSelectId = 0;
 const MINIMUM_CHILD_INDEX = 0;
 const INACTIVE_KEYBOARD_SELECTION = -1;
 const OPTION_NAVIGATION_KEYS = ['ArrowDown', 'ArrowUp', 'Enter', ' '];
+const TOGGLE_CLOSED = 'closed';
+const TOGGLE_OPEN = 'open';
 
 @Component({
     selector: 'vf-select',
@@ -40,7 +42,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
         return selectedOption ? selectedOption.viewValue() : this.placeholder();
     });
 
-    selectOption(newValue: string | number) {
+    selectOption(newValue: string | number): void {
         this.currentValue.set(newValue);
         
         const popover = document.getElementById(this.popoverId);
@@ -54,7 +56,24 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
         this.currentValue.set(null);
     }
 
-    handleKeydown(event: KeyboardEvent) {
+    onPopoverToggle(event: Event): void {
+        const toggleEvent = event as ToggleEvent;
+
+        if (toggleEvent.newState === TOGGLE_CLOSED) {
+            this.activeIndex.set(INACTIVE_KEYBOARD_SELECTION);
+        } 
+        if (toggleEvent.newState === TOGGLE_OPEN) {
+            const currentValue = this.currentValue();
+            const options = this.options();
+
+            if (currentValue) {
+                const currentSelectedOptionIndex = options.findIndex((option) => option.value() === currentValue);
+                this.activeIndex.set(currentSelectedOptionIndex >= 0 ? currentSelectedOptionIndex : INACTIVE_KEYBOARD_SELECTION);
+            }
+        }
+    }
+
+    handleKeydown(event: KeyboardEvent): void {
         if (this.isDisabled()) {
             return;
         }
@@ -78,20 +97,31 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
         event.preventDefault();
 
         switch(event.key) {
-            case ('ArrowUp') :
-                this.activeIndex.update(currentIndex => Math.max(currentIndex - 1, MINIMUM_CHILD_INDEX));
+            case 'ArrowUp':
+                let prevIndex = currentActiveIndex === INACTIVE_KEYBOARD_SELECTION ? totalOptions - 1 : currentActiveIndex - 1;
+                while (prevIndex >= 0 && this.options()[prevIndex].isDisabled()) {
+                    prevIndex--;
+                }
+                if (prevIndex >= 0) {
+                    this.activeIndex.set(prevIndex);
+                }
                 break;
-            case ('ArrowDown') :
-                this.activeIndex.update(currentIndex => Math.min(currentIndex + 1, totalOptions - 1));
+
+            case 'ArrowDown':
+                let nextIndex = currentActiveIndex === INACTIVE_KEYBOARD_SELECTION ? 0 : currentActiveIndex + 1;
+                while (nextIndex < totalOptions && this.options()[nextIndex].isDisabled()) {
+                    nextIndex++;
+                }
+                if (nextIndex < totalOptions) {
+                    this.activeIndex.set(nextIndex);
+                }
                 break;
             case ('Enter') :
             case (' ') :
                 if (currentActiveIndex >= 0 && currentActiveIndex < totalOptions) {
-                    this.currentValue.set(this.activeIndex());
                     const keyboardSelectedOption = this.options()[currentActiveIndex];
-                    if (!keyboardSelectedOption.isDisabled) {
+                    if (!keyboardSelectedOption.isDisabled()) {
                         this.selectOption(keyboardSelectedOption.value());
-                        this.activeIndex.set(INACTIVE_KEYBOARD_SELECTION);
                     }
                 }
 

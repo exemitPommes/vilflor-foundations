@@ -1,4 +1,4 @@
-import { Component, computed, ElementRef, forwardRef, inject, input, model, output, signal } from '@angular/core';
+import { Component, computed, ElementRef, forwardRef, inject, input, model, output, Signal, signal } from '@angular/core';
 import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
 import { VF_SELECT_PARENT } from '../select/select.token';
 
@@ -9,6 +9,7 @@ import { VF_SELECT_PARENT } from '../select/select.token';
     styleUrl: './option.component.scss',
     host: {
         '(click)': 'handleOptionSelected()',
+        '(mouseenter)': 'handleMouseEnter()',
         '[class.vf-option-selected]': 'isSelected()',
         '[attr.role]': '"option"',
         '[class.vf-option-active]': 'isActive()',
@@ -30,6 +31,13 @@ export class OptionComponent extends CoreInteractiveComponentBase {
             return;
         }
         this._select.selectOption(this.value());
+    }
+    
+    handleMouseEnter(): void {
+        if (this.isDisabled()) {
+            return;
+        }
+        this._select.activeIndex.set(this.optionPosition());
     }
     
     viewValue(): string {

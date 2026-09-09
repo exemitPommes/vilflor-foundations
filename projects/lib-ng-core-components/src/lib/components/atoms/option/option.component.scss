@@ -6,7 +6,7 @@
     display: block;
     overflow: hidden;
 
-    &:hover {
+    /* &:hover {
         &.core-variant-primary {
             background-color: var(--core-color-primary-hover);
         }
@@ -14,7 +14,7 @@
         &.core-variant-secondary {
             background-color: var(--core-color-secondary-hover);
         }
-    }
+    } */
 
     &:active {
         &.core-variant-primary {
