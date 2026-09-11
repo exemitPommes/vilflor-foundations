@@ -1,4 +1,7 @@
+@use '../../../styles/mixins' as *;
+
 :host {
+  @include core-typography;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--core-color-border);
@@ -6,7 +9,6 @@
   background-color: var(--core-color-background);
   overflow: hidden;
   box-shadow: var(--core-shadow-sm);
-  font-family: var(--core-font-family);
 
   &.core-size-sm {
 

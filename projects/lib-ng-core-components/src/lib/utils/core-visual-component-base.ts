@@ -1,4 +1,4 @@
-import { Directive, input, computed } from '@angular/core';
+import { computed, Directive, input } from '@angular/core';
 import { ComponentSize, ComponentVariant } from './component.types';
 
 let nextUniqueId = 0;
@@ -19,7 +19,7 @@ export abstract class CoreVisualComponentBase {
   private readonly _generatedId = `core-id-${nextUniqueId++}`;
 
   readonly hostId = computed(() => this.id() ?? this._generatedId);
-  
+
   readonly baseClasses = computed(() => {
     return `core-variant-${this.variant()} core-size-${this.size()}`;
   });

@@ -1,14 +1,12 @@
 import { Component, computed, contentChildren, forwardRef, input, model, signal } from '@angular/core';
 import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
+import { OPTION_NAVIGATION_KEYS } from '../../../utils/keyboard.contants';
+import { TOGGLE_CLOSED, TOGGLE_OPEN } from '../../../utils/popover-state.contants';
 import { OptionComponent } from '../option/option.component';
-import { VF_SELECT_PARENT, SelectParentI } from './select.token'; 
+import { INACTIVE_KEYBOARD_SELECTION } from './select.constants';
+import { SelectParentI, VF_SELECT_PARENT } from './select.token';
 
 let nextSelectId = 0;
-const MINIMUM_CHILD_INDEX = 0;
-const INACTIVE_KEYBOARD_SELECTION = -1;
-const OPTION_NAVIGATION_KEYS = ['ArrowDown', 'ArrowUp', 'Enter', ' '];
-const TOGGLE_CLOSED = 'closed';
-const TOGGLE_OPEN = 'open';
 
 @Component({
     selector: 'vf-select',
@@ -16,8 +14,10 @@ const TOGGLE_OPEN = 'open';
     styleUrl: './select.component.scss',
     templateUrl: './select.component.html',
     providers: [
-        { provide: VF_SELECT_PARENT, 
-            useExisting: forwardRef(() => SelectComponent) }
+        {
+            provide: VF_SELECT_PARENT,
+            useExisting: forwardRef(() => SelectComponent)
+        }
     ],
     host: {
         '[class.vf-select-container]': 'true',
@@ -27,11 +27,11 @@ const TOGGLE_OPEN = 'open';
 export class SelectComponent extends CoreInteractiveComponentBase implements SelectParentI {
     readonly placeholder = input('');
     readonly currentValue = model<string | number | null>('');
-    
+
     readonly popoverId = `vf-select-popover-${nextSelectId++}`;
-    
+
     readonly options = contentChildren(OptionComponent);
-    readonly activeIndex = signal<number>(-1); 
+    readonly activeIndex = signal<number>(-1);
 
     readonly displayText = computed(() => {
         const value = this.currentValue();
@@ -44,7 +44,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
 
     selectOption(newValue: string | number): void {
         this.currentValue.set(newValue);
-        
+
         const popover = document.getElementById(this.popoverId);
         if (popover) {
             popover.hidePopover();
@@ -61,7 +61,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
 
         if (toggleEvent.newState === TOGGLE_CLOSED) {
             this.activeIndex.set(INACTIVE_KEYBOARD_SELECTION);
-        } 
+        }
         if (toggleEvent.newState === TOGGLE_OPEN) {
             const currentValue = this.currentValue();
             const options = this.options();
@@ -77,7 +77,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
         if (this.isDisabled()) {
             return;
         }
-        
+
         const key = event.key;
         if (!OPTION_NAVIGATION_KEYS.includes(key)) {
             return;
@@ -87,7 +87,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
         if (totalOptions === 0) {
             return;
         }
-        
+
         const currentActiveIndex = this.activeIndex();
 
         if ((key === 'Enter' || key === ' ') && currentActiveIndex === INACTIVE_KEYBOARD_SELECTION) {
@@ -96,7 +96,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
 
         event.preventDefault();
 
-        switch(event.key) {
+        switch (event.key) {
             case 'ArrowUp':
                 let prevIndex = currentActiveIndex === INACTIVE_KEYBOARD_SELECTION ? totalOptions - 1 : currentActiveIndex - 1;
                 while (prevIndex >= 0 && this.options()[prevIndex].isDisabled()) {
@@ -116,8 +116,8 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
                     this.activeIndex.set(nextIndex);
                 }
                 break;
-            case ('Enter') :
-            case (' ') :
+            case ('Enter'):
+            case (' '):
                 if (currentActiveIndex >= 0 && currentActiveIndex < totalOptions) {
                     const keyboardSelectedOption = this.options()[currentActiveIndex];
                     if (!keyboardSelectedOption.isDisabled()) {

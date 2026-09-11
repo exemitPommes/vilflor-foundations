@@ -1,12 +1,12 @@
+@use '../../../styles/mixins' as *;
+
 :host {
+    @include core-typography;
     display: flex;
     align-items: center;
     border: 2px solid var(--core-color-border);
-    font-family: var(--core-font-family);
     border-radius: var(--core-radius-md);
     background-color: transparent;
-    color: var(--core-color-text);
-    font-size: var(--core-font-size-md);
 
     &.core-variant-primary {
         border-color: var(--core-color-primary);

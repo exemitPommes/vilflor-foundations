@@ -1,0 +1,1 @@
+export const OPTION_NAVIGATION_KEYS = ['ArrowDown', 'ArrowUp', 'Enter', ' '];

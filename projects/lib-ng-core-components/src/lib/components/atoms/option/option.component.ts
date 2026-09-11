@@ -1,4 +1,4 @@
-import { Component, computed, ElementRef, forwardRef, inject, input, model, output, Signal, signal } from '@angular/core';
+import { Component, computed, ElementRef, inject, input } from '@angular/core';
 import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
 import { VF_SELECT_PARENT } from '../select/select.token';
 
@@ -17,7 +17,7 @@ import { VF_SELECT_PARENT } from '../select/select.token';
 })
 export class OptionComponent extends CoreInteractiveComponentBase {
     readonly value = input.required<string | number>();
-    
+
     private readonly _select = inject(VF_SELECT_PARENT);
     private readonly _optionElement = inject(ElementRef);
 
@@ -32,14 +32,14 @@ export class OptionComponent extends CoreInteractiveComponentBase {
         }
         this._select.selectOption(this.value());
     }
-    
+
     handleMouseEnter(): void {
         if (this.isDisabled()) {
             return;
         }
         this._select.activeIndex.set(this.optionPosition());
     }
-    
+
     viewValue(): string {
         return this._optionElement.nativeElement.textContent?.trim() || '';
     }

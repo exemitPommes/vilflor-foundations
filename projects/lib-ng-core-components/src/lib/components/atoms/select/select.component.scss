@@ -1,6 +1,8 @@
+@use '../../../styles/mixins' as *;
+
 :host {
+    @include core-typography;
     display: inline-block;
-    font-family: var(--core-font-family);
     width: 100%;
 }
 
@@ -9,23 +11,22 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    
+
     background: transparent;
     text-align: left;
-    
+
     border: 2px solid var(--core-color-border);
     padding: var(--core-space-8) var(--core-space-12);
     border-radius: var(--core-radius-md);
     cursor: pointer;
-    font-family: inherit;
-    font-size: var(--core-font-size-md);
-    color: var(--core-color-text);
+    @include core-typography;
 
-    anchor-name: --vf-select-anchor; 
+    anchor-name: --vf-select-anchor;
 
     :host(.core-variant-primary) & {
         border-color: var(--core-color-primary);
     }
+
     :host(.core-variant-secondary) & {
         border-color: var(--core-color-secondary);
     }
@@ -35,8 +36,11 @@
         background-color: var(--core-color-background-muted);
         cursor: not-allowed;
         pointer-events: none;
-        
     }
+
+    &:focus-visible {
+    @include core-focus-ring;
+  }
 }
 
 .vf-select-icon {
@@ -63,7 +67,7 @@
 .vf-clear-btn {
     padding: var(--core-space-4);
     border-radius: 50%;
-    
+
     &:hover {
         background-color: var(--core-color-background-muted);
         color: var(--core-color-text);

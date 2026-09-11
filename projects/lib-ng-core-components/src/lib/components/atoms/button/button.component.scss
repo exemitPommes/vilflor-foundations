@@ -1,12 +1,13 @@
+@use '../../../styles/mixins' as *;
+
 :host {
+  @include core-typography;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: var(--core-space-8) var(--core-space-12);
   border: none;
   border-radius: var(--core-radius-md);
-
-  font-family: var(core-font-family);
   cursor: pointer;
   transition: background var(--core-motion-fast), color var(--core-motion-fast);
 
@@ -50,12 +51,12 @@
   &.core-disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    pointer-events: none; /* Evita clicks si es un enlace <a> */
+    pointer-events: none;
+    /* Evita clicks si es un enlace <a> */
   }
 
   &:focus-visible {
-    outline: 2px solid var(--core-focus-ring);
-    outline-offset: 2px;
+    @include core-focus-ring;
   }
 
   &.core-size-sm {

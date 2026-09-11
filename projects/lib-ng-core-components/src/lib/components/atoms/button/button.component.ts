@@ -1,7 +1,6 @@
 import { Component, input } from '@angular/core';
 import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
-
-export type ButtonType = 'button' | 'submit' | 'reset'; 
+import { ButtonType } from './button.types';
 
 @Component({
   selector: 'button[vf-button], a[vf-button]',
