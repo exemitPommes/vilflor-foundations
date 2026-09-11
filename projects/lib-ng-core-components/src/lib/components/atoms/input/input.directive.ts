@@ -1,7 +1,6 @@
 import { Directive, input, signal } from '@angular/core';
 import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
-
-export type InputType = 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
+import { InputType } from './input.types';
 
 @Directive({
     selector: 'input[vf-input], textarea[vf-input]',

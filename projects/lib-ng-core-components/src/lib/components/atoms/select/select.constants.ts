@@ -1,0 +1,2 @@
+export const MINIMUM_CHILD_INDEX = 0;
+export const INACTIVE_KEYBOARD_SELECTION = -1;

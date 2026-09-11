@@ -1,0 +1,10 @@
+@mixin core-typography {
+  font-family: var(--core-font-family);
+  font-size: var(--core-font-size-md);
+  color: var(--core-color-text);
+}
+
+@mixin core-focus-ring {
+  outline: 2px solid var(--core-focus-ring);
+  outline-offset: 2px;
+}

@@ -5,6 +5,6 @@ import { CoreVisualComponentBase } from '../../../utils/core-visual-component-ba
     selector: 'vf-card',
     standalone: true,
     styleUrl: './card.component.scss',
-    templateUrl: './card.component.html'
+    templateUrl: './card.component.html',
 })
-export class CardComponent extends CoreVisualComponentBase {}
+export class CardComponent extends CoreVisualComponentBase { }
