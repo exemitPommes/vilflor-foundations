@@ -1,0 +1,20 @@
+<label class="vf-checkbox-wrapper">
+  
+  <input 
+    type="checkbox" 
+    class="vf-checkbox-native"
+    [checked]="checked()" 
+    [disabled]="isDisabled()"
+    (change)="onToggle($event)">
+
+  <div class="vf-checkbox-box">
+    <svg class="vf-checkbox-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </div>
+
+  <div class="vf-checkbox-label">
+    <ng-content></ng-content>
+  </div>
+
+</label>

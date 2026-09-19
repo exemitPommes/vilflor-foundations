@@ -48,7 +48,7 @@
   </div> -->
 
 
-  <div #selectContainer style="margin: 2rem; width: 300px; height: 500px;">
+  <div #selectContainer style="margin: 2rem; width: 300px; height: 50px;">
     <vf-select variant="primary" placeholder="Selecciona algo or else" [(currentValue)]="selectValue">
       <!-- <span vf-select-icon>🔽</span>  -->
       <vf-option value="1" >
@@ -64,6 +64,12 @@
         <span> Cuatro </span>
       </vf-option>
     </vf-select>
+  </div>
+
+  <div #checboxContainer style="margin: 2rem;">
+    <vf-checkbox variant="primary" [isDisabled]="false">
+      Mi primito checkbox
+    </vf-checkbox>
   </div>
 
 </main>
