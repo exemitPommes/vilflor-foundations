@@ -1,0 +1,73 @@
+@use '../../../styles/mixins' as *;
+
+:host {
+    @include core-typography;
+    padding: var(--core-space-8) var(--core-space-12);
+    background-color: transparent;
+
+    &.vf-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        
+        .vf-checkbox-wrapper {
+            cursor: not-allowed;
+        }
+    }
+}
+
+.vf-checkbox-wrapper {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.vf-checkbox-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--core-space-16);
+    width: var(--core-space-16);
+    border: 2px solid var(--core-color-text-muted);
+    border-radius: var(--core-radius-md);
+    transition: all 0.2s ease-in-out;
+}
+
+.vf-checkbox-native {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked {
+        + .vf-checkbox-box {
+            background-color: var(--core-color-primary);
+            border-color: var(--core-color-primary);
+            
+            .vf-checkbox-tick {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+
+    &:focus-visible {
+        + .vf-checkbox-box {
+            @include core-focus-ring;
+        }
+    }
+}
+
+.vf-checkbox-label {
+    padding: var(--core-no-space) var(--core-space-12);
+    align-content: center;
+}
+
+.vf-checkbox-tick {
+    width: 80%;
+    height: 80%;
+    color: var(--core-color-text-inverse);
+    
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
