@@ -1,16 +1,18 @@
-import { Component, model } from "@angular/core";
+import { Component, input, model } from "@angular/core";
 import { CoreInteractiveComponentBase } from "../../../utils/core-interactive-component-base";
 
 @Component({
-    selector: 'vf-checkbox',
-    styleUrl: './checkbox.component.scss',
-    templateUrl: './checkbox.component.html',
+    selector: 'vf-radio',
     standalone: true,
+    templateUrl: './radio.component.html',
+    styleUrl: './radio.component.scss',
     host: {
         '[class.vf-disabled]': 'isDisabled()',
     }
 })
-export class CheckboxComponent extends CoreInteractiveComponentBase {
+export class RadioComponent extends CoreInteractiveComponentBase {
+    readonly value = input.required<string | number>();
+    readonly name = input('');
     readonly checked = model(false);
 
     onToggle(event: Event): void {
