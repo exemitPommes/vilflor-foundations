@@ -1,0 +1,18 @@
+<label class="vf-radio-wrapper">
+  <input 
+    type="radio" 
+    class="vf-radio-native"
+    [name]="name()"
+    [value]="value()"
+    [checked]="checked()" 
+    [disabled]="isDisabled()"
+    (change)="onToggle($event)">
+
+  <div class="vf-radio-circle">
+    
+  </div>
+
+  <div class="vf-radio-label">
+    <ng-content></ng-content>
+  </div>
+</label>
