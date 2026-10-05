@@ -1,0 +1,18 @@
+:host {
+    display: flex;
+    gap: var(--core-space-12);
+
+    &.vf-radio-group-vertical {
+        flex-direction: column;
+    }
+
+    &.vf-radio-group-horizontal {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &.vf-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}

@@ -1,5 +1,6 @@
-import { Component, input, model } from "@angular/core";
-import { CoreInteractiveComponentBase } from "../../../utils/core-interactive-component-base";
+import { Component, computed, inject, input, model } from '@angular/core';
+import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
+import { VF_RADIO_GROUP } from '../radio-group/radio-group.token';
 
 @Component({
     selector: 'vf-radio',
@@ -7,16 +8,29 @@ import { CoreInteractiveComponentBase } from "../../../utils/core-interactive-co
     templateUrl: './radio.component.html',
     styleUrl: './radio.component.scss',
     host: {
-        '[class.vf-disabled]': 'isDisabled()',
+        '[class.vf-disabled]': 'isGloballyDisabled()',
     }
 })
 export class RadioComponent extends CoreInteractiveComponentBase {
     readonly value = input.required<string | number>();
-    readonly name = input('');
-    readonly checked = model(false);
+    private readonly _group = inject(VF_RADIO_GROUP, { optional: true });
+    readonly name = computed(() => this._group ? this._group.name() : 'vf-default-radio');
+    readonly isChecked = computed(() => {
+        if(this._group) {
+            return this._group.value() === this.value();
+        }
+        return false;
+    });
 
-    onToggle(event: Event): void {
-        const inputElement = event.target as HTMLInputElement;
-        this.checked.set(inputElement.checked);
+    readonly isGloballyDisabled = computed(() => {
+        const groupDisabled = this._group ? this._group.isDisabled() : false;
+        return this.isDisabled() || groupDisabled;
+    });
+
+    onToggle(): void {
+        if (this.isGloballyDisabled()) {
+            return;
+        }
+        this._group?.selectRadio(this.value());
     }
 }
