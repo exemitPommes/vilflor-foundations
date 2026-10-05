@@ -4,9 +4,9 @@
     class="vf-radio-native"
     [name]="name()"
     [value]="value()"
-    [checked]="checked()" 
-    [disabled]="isDisabled()"
-    (change)="onToggle($event)">
+    [checked]="isChecked()" 
+    [disabled]="isGloballyDisabled()"
+    (change)="onToggle()">
 
   <div class="vf-radio-circle">
     

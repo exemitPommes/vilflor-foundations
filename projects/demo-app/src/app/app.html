@@ -73,12 +73,16 @@
   </div>
 
   <div #radioContainer style="margin: 2rem;">
-    <vf-radio variant="primary" value="vertexai" name="vai" [(checked)]="radioVSelected" [isDisabled]="false">
+    <!-- <vf-radio variant="primary" value="vertexai" name="vai" [(checked)]="radioVSelected" [isDisabled]="false">
       VertexAI
     </vf-radio>
     <vf-radio variant="primary" value="googlecloud" name="gc" [(checked)]="radioGSelected" [isDisabled]="false">
       Google Cloud
-    </vf-radio>
+    </vf-radio> -->
+    <vf-radio-group [(value)]="nubeSeleccionada" (valueChange)="printValue()" name="proveedorNube" [isDisabled]="false" orientation="vertical">
+      <vf-radio value="vertexai">VertexAI</vf-radio>
+      <vf-radio value="googlecloud" [isDisabled]="false">Google Cloud</vf-radio>
+    </vf-radio-group>
   </div>
 
 </main>
