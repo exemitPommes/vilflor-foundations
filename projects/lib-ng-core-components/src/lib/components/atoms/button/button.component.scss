@@ -75,7 +75,17 @@
   }
 }
 
-/* Un pequeño extra para separar el texto de los iconos si los hay */
+.vf-spinner {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: var(--core-space-8);
+  animation: vf-spin 1s linear infinite;
+}
+
+@keyframes vf-spin {
+  100% { transform: rotate(360deg); }
+}
+
 .vf-button-content {
   display: inline-flex;
   margin: 0 var(--core-space-4);

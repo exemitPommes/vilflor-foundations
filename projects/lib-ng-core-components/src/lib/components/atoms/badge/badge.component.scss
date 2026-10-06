@@ -1,0 +1,21 @@
+@use '../../../styles/mixins' as *;
+
+:host {
+  @include core-typography;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--core-space-4) var(--core-space-8);
+  font-size: var(--core-font-size-xs);
+  font-weight: var(--core-font-weight-bold);
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.core-variant-primary { background: var(--core-color-primary); color: white; }
+  &.core-variant-secondary { background: var(--core-color-secondary); color: white; }
+  
+  &.core-variant-success { background: #10b981; color: white; } /* AUTO_APPROVED */
+  &.core-variant-warning { background: #f59e0b; color: white; } /* FLAGGED_FOR_REVIEW */
+  &.core-variant-danger { background: #ef4444; color: white; }
+}
