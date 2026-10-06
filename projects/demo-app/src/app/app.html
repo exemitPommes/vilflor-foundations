@@ -85,6 +85,45 @@
     </vf-radio-group>
   </div>
 
+  <div style="margin: 2rem; max-width: 500px; display: flex; flex-direction: column; gap: 2rem;" #captsoneElements>
+
+  <section>
+    <h3>1. Botón de Acción (IA)</h3>
+    <div style="display: flex; gap: 1rem;">
+      <button vf-button variant="primary">Auditar Documento</button>
+      <button vf-button variant="primary" [isLoading]="true">Procesando con Vertex AI...</button>
+    </div>
+  </section>
+
+  <section>
+    <h3>2. Badges de Estado</h3>
+    <div style="display: flex; gap: 1rem;">
+      <vf-badge variant="success">Auto Approved</vf-badge>
+      <vf-badge variant="warning">Flagged for Review</vf-badge>
+      <vf-badge variant="danger">Rejected</vf-badge>
+      <vf-badge variant="secondary">Draft</vf-badge>
+    </div>
+  </section>
+
+  <section>
+    <h3>3. Skeleton Loader</h3>
+    <article vf-card>
+      <div vf-card-header style="display: flex; align-items: center; gap: 1rem;">
+        <vf-skeleton shape="circle"></vf-skeleton>
+        <div style="flex: 1;">
+          <vf-skeleton shape="text" style="width: 60%;"></vf-skeleton>
+          <vf-skeleton shape="text" style="width: 40%;"></vf-skeleton>
+        </div>
+      </div>
+      
+      <div style="margin-top: 1rem;">
+        <vf-skeleton shape="rect" style="height: 100px;"></vf-skeleton>
+      </div>
+    </article>
+  </section>
+
+</div>
+
 </main>
 
 <router-outlet />

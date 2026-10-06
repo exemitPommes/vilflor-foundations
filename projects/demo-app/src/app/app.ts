@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent } from 'lib-ng-core-components';
+import { ButtonComponent, CardComponent, CheckboxComponent, InputDirective, InputFormFieldComponent, OptionComponent, RadioComponent, RadioGroupComponent, SelectComponent, SkeletonComponent, BadgeComponent } from 'lib-ng-core-components';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent],
+  imports: [RouterOutlet, ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent, SkeletonComponent, BadgeComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
