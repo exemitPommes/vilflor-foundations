@@ -14,6 +14,7 @@ export * from './lib/components/atoms/radio-group/radio-group.component';
 export * from './lib/components/atoms/badge/badge.component';
 export * from './lib/components/atoms/skeleton/skeleton.component';
 export * from './lib/components/atoms/dropzone/dropzone.component';
+export * from './lib/components/atoms/alert/alert.component';
 
 /* export * from './lib/components/atoms';
 export * from './lib/tokens';

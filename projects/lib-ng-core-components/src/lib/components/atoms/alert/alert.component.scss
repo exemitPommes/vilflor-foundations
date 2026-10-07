@@ -1,0 +1,53 @@
+@use '../../../styles/mixins' as *;
+
+:host {
+  @include core-typography;
+  display: flex;
+  gap: var(--core-space-12);
+  padding: var(--core-space-16);
+  border-radius: var(--core-radius-md);
+  border: 1px solid transparent;
+  background-color: var(--core-color-background-muted);
+
+  &.core-variant-danger {
+    background-color: #fef2f2;
+    border-color: #f87171;
+    color: #991b1b;
+    .vf-alert-icon { color: #ef4444; }
+  }
+
+  &.core-variant-warning {
+    background-color: #fffbeb;
+    border-color: #fbbf24;
+    color: #92400e;
+    .vf-alert-icon { color: #f59e0b; }
+  }
+
+  &.core-variant-success {
+    background-color: #ecfdf5;
+    border-color: #34d399;
+    color: #065f46;
+    .vf-alert-icon { color: #10b981; }
+  }
+}
+
+.vf-alert-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.vf-alert-content {
+  flex-grow: 1;
+}
+
+.vf-alert-title {
+  margin: 0 0 var(--core-space-4) 0;
+  font-weight: var(--core-font-weight-bold);
+  font-size: var(--core-font-size-md);
+}
+
+.vf-alert-body {
+  font-size: var(--core-font-size-sm);
+  line-height: var(--core-line-height-md);
+}

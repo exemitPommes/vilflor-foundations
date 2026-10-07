@@ -91,6 +91,10 @@
       (errorOccurred)="mostrarAlertaRoja($event)">
     </vf-dropzone>
   </div>
+  
+  <div #alertContainer style="margin: 2rem;">
+    <vf-alert variant="warning">Alertando con alertas</vf-alert>
+  </div>
 
   <div style="margin: 2rem; max-width: 500px; display: flex; flex-direction: column; gap: 2rem;" #captsoneElements>
 
@@ -174,7 +178,10 @@
         <h4>Documento a analizar</h4>
         <vf-dropzone formControlName="documento" [multiple]="false" (errorOccurred)="mostrarAlertaRoja($event)">
         </vf-dropzone>
-        @if (miFormulario.get('documento')?.value; as file) {
+        @if (alertTime) {
+          <vf-alert variant="danger" style="margin-top: 1rem;">{{alertContent()}}</vf-alert>
+        }
+        @else if (miFormulario.get('documento')?.value; as file) {
         <p style="color: green; font-size: 0.875rem; margin-top: 0.5rem;">
           ✓ Archivo cargado: {{ file.name }}
         </p>
