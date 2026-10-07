@@ -1,11 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { ButtonComponent, CardComponent, CheckboxComponent, InputDirective, InputFormFieldComponent, OptionComponent, RadioComponent, RadioGroupComponent, SelectComponent, SkeletonComponent, BadgeComponent } from 'lib-ng-core-components';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent, SkeletonComponent, BadgeComponent],
+  imports: [RouterOutlet, JsonPipe, ReactiveFormsModule, ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent, SkeletonComponent, BadgeComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -14,6 +16,13 @@ export class App {
   readonly selectValue = signal<string | number | null>(null);
   readonly checkboxSelected = false;
   readonly nubeSeleccionada = 'googlecloud';
+
+  miFormulario = new FormGroup({
+    nube: new FormControl('vertexai'),
+    aceptaTerminos: new FormControl(false),
+    pais: new FormControl(null),
+    empresa: new FormControl('')
+  });
 
   public optionSelected(): void {
     console.log('yup, selected')
@@ -25,5 +34,9 @@ export class App {
 
   public printValue(): void {
     console.log('Valor del grupo: ', this.nubeSeleccionada);
+  }
+
+  protected verDatos() {
+    console.log('Datos del formulario listos para enviar a la IA:', this.miFormulario.value);
   }
 }

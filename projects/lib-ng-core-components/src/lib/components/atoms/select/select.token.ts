@@ -2,7 +2,7 @@ import { InjectionToken, ModelSignal, Signal, WritableSignal } from '@angular/co
 import { OptionComponent } from '../option/option.component';
 
 export interface SelectParentI {
-    currentValue: ModelSignal<string | number | null>;
+    value: ModelSignal<string | number | null>;
     activeIndex: WritableSignal<number>;
     options: Signal<readonly OptionComponent[]>;
     selectOption(newValue: string | number): void;

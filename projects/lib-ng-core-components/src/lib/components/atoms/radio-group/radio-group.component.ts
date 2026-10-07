@@ -1,5 +1,5 @@
-import { Component, forwardRef, input, model } from '@angular/core';
-import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
+import { Component, forwardRef, input } from '@angular/core';
+import { CoreCvaComponentBase } from '../../../utils/core-cva-component-base';
 import { RadioGroupI, VF_RADIO_GROUP } from './radio-group.token';
 import { RadioGroupOrientation } from './radio-group.types';
 
@@ -18,12 +18,11 @@ import { RadioGroupOrientation } from './radio-group.types';
         '[class.vf-disabled]': 'isDisabled()',
     },
 })
-export class RadioGroupComponent extends CoreInteractiveComponentBase implements RadioGroupI {
+export class RadioGroupComponent extends CoreCvaComponentBase<string | number> implements RadioGroupI {
     readonly name = input<string>(`vf-radio-group-${Math.random().toString(36).substring(2)}`);
     readonly orientation = input<RadioGroupOrientation>('vertical');
-    readonly value = model<string | number | null>(null);
 
     selectRadio(newValue: string | number): void {
-        this.value.set(newValue);
+        this.updateValue(newValue);
     }
 }

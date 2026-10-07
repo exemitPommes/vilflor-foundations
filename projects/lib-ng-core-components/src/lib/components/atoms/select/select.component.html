@@ -1,23 +1,29 @@
-<button
+<button 
     type="button"
     [disabled]="isDisabled()"
-    class="vf-select-trigger" 
-    [attr.popovertarget]="popoverId" 
-    popovertargetaction="toggle">
+    class="vf-select-trigger"
+    [attr.popovertarget]="popoverId"
+    popovertargetaction="toggle"
+    [style.anchor-name]="'--vf-select-anchor-' + popoverId">
     <span class="vf-select-value">
         {{ displayText() }}
     </span>
 
     <span class="vf-select-icon">
-        @if (currentValue()) {
-            <span class="vf-clear-btn" (click)="clearSelection($event)">✕</span>
+        @if (value()) {
+        <span class="vf-clear-btn" (click)="clearSelection($event)">✕</span>
         } @else {
-            <ng-content select="[vf-select-icon]">▼</ng-content>
+        <ng-content select="[vf-select-icon]">▼</ng-content>
         }
     </span>
 </button>
 
 
-<div [id]="popoverId" popover="auto" class="vf-select-dropdown" (toggle)="onPopoverToggle($event)">
+<div 
+    [id]="popoverId"
+    popover="auto"
+    class="vf-select-dropdown"
+    (toggle)="onPopoverToggle($event)"
+    [style.position-anchor]="'--vf-select-anchor-' + popoverId" >
     <ng-content></ng-content>
 </div>

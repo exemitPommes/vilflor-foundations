@@ -3,7 +3,7 @@
   <input 
     type="checkbox" 
     class="vf-checkbox-native"
-    [checked]="checked()" 
+    [checked]="value() ?? false" 
     [disabled]="isDisabled()"
     (change)="onToggle($event)">
 

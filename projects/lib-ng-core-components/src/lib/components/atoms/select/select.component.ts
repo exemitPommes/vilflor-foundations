@@ -1,5 +1,5 @@
 import { Component, computed, contentChildren, forwardRef, input, model, signal } from '@angular/core';
-import { CoreInteractiveComponentBase } from '../../../utils/core-interactive-component-base';
+import { CoreCvaComponentBase } from '../../../utils/core-cva-component-base';
 import { OPTION_NAVIGATION_KEYS } from '../../../utils/keyboard.contants';
 import { TOGGLE_CLOSED, TOGGLE_OPEN } from '../../../utils/popover-state.contants';
 import { OptionComponent } from '../option/option.component';
@@ -24,9 +24,8 @@ let nextSelectId = 0;
         '(keydown)': 'handleKeydown($event)'
     }
 })
-export class SelectComponent extends CoreInteractiveComponentBase implements SelectParentI {
+export class SelectComponent extends CoreCvaComponentBase<string | number> implements SelectParentI {
     readonly placeholder = input('');
-    readonly currentValue = model<string | number | null>('');
 
     readonly popoverId = `vf-select-popover-${nextSelectId++}`;
 
@@ -34,7 +33,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
     readonly activeIndex = signal<number>(-1);
 
     readonly displayText = computed(() => {
-        const value = this.currentValue();
+        const value = this.value();
         if (!value) {
             return this.placeholder();
         }
@@ -43,7 +42,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
     });
 
     selectOption(newValue: string | number): void {
-        this.currentValue.set(newValue);
+        this.updateValue(newValue);
 
         const popover = document.getElementById(this.popoverId);
         if (popover) {
@@ -53,7 +52,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
 
     clearSelection(event: Event): void {
         event.stopPropagation();
-        this.currentValue.set(null);
+        this.updateValue(null);
     }
 
     onPopoverToggle(event: Event): void {
@@ -63,7 +62,7 @@ export class SelectComponent extends CoreInteractiveComponentBase implements Sel
             this.activeIndex.set(INACTIVE_KEYBOARD_SELECTION);
         }
         if (toggleEvent.newState === TOGGLE_OPEN) {
-            const currentValue = this.currentValue();
+            const currentValue = this.value();
             const options = this.options();
 
             if (currentValue) {
