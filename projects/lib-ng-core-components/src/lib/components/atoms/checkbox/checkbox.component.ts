@@ -1,5 +1,5 @@
 import { Component, model } from "@angular/core";
-import { CoreInteractiveComponentBase } from "../../../utils/core-interactive-component-base";
+import { CoreCvaComponentBase } from "../../../utils/core-cva-component-base";
 
 @Component({
     selector: 'vf-checkbox',
@@ -10,11 +10,9 @@ import { CoreInteractiveComponentBase } from "../../../utils/core-interactive-co
         '[class.vf-disabled]': 'isDisabled()',
     }
 })
-export class CheckboxComponent extends CoreInteractiveComponentBase {
-    readonly checked = model(false);
-
+export class CheckboxComponent extends CoreCvaComponentBase<boolean> {
     onToggle(event: Event): void {
         const inputElement = event.target as HTMLInputElement;
-        this.checked.set(inputElement.checked);
+        this.updateValue(inputElement.checked);
     }
 }

@@ -21,8 +21,6 @@
     cursor: pointer;
     @include core-typography;
 
-    anchor-name: --vf-select-anchor;
-
     :host(.core-variant-primary) & {
         border-color: var(--core-color-primary);
     }
@@ -57,7 +55,6 @@
     background-color: var(--core-color-background);
     padding: var(--core-no-space);
 
-    position-anchor: --vf-select-anchor;
     top: anchor(bottom);
     left: anchor(left);
     width: anchor-size(width);

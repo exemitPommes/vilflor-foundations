@@ -41,7 +41,7 @@
     </vf-input-form-field>
   </div>
 
- <!--  <div #optionContainer style="margin: 2rem; width: 300px;">
+  <!--  <div #optionContainer style="margin: 2rem; width: 300px;">
     <vf-option variant="primary" value="huh">
       <span> ¡No se admiten opciones huérfanas! </span>
     </vf-option>
@@ -49,9 +49,9 @@
 
 
   <div #selectContainer style="margin: 2rem; width: 300px; height: 50px;">
-    <vf-select variant="primary" placeholder="Selecciona algo or else" [(currentValue)]="selectValue">
+    <vf-select variant="primary" placeholder="Selecciona algo or else" [(value)]="selectValue">
       <!-- <span vf-select-icon>🔽</span>  -->
-      <vf-option value="1" >
+      <vf-option value="1">
         <span> Uno </span>
       </vf-option>
       <vf-option value="2" [isDisabled]="true">
@@ -67,7 +67,7 @@
   </div>
 
   <div #checboxContainer style="margin: 2rem;">
-    <vf-checkbox variant="primary" [(checked)]="checkboxSelected" [isDisabled]="false" value="primerCheckbox" (checkedChange)="checkingCheckbox()">
+    <vf-checkbox variant="primary" [(value)]="checkboxSelected" [isDisabled]="false" (valueChange)="checkingCheckbox()">
       Mi primito checkbox
     </vf-checkbox>
   </div>
@@ -79,7 +79,8 @@
     <vf-radio variant="primary" value="googlecloud" name="gc" [(checked)]="radioGSelected" [isDisabled]="false">
       Google Cloud
     </vf-radio> -->
-    <vf-radio-group [(value)]="nubeSeleccionada" (valueChange)="printValue()" name="proveedorNube" [isDisabled]="false" orientation="vertical">
+    <vf-radio-group [(value)]="nubeSeleccionada" (valueChange)="printValue()" name="proveedorNube" [isDisabled]="false"
+      orientation="vertical">
       <vf-radio value="vertexai">VertexAI</vf-radio>
       <vf-radio value="googlecloud" [isDisabled]="false">Google Cloud</vf-radio>
     </vf-radio-group>
@@ -87,42 +88,90 @@
 
   <div style="margin: 2rem; max-width: 500px; display: flex; flex-direction: column; gap: 2rem;" #captsoneElements>
 
-  <section>
-    <h3>1. Botón de Acción (IA)</h3>
-    <div style="display: flex; gap: 1rem;">
-      <button vf-button variant="primary">Auditar Documento</button>
-      <button vf-button variant="primary" [isLoading]="true">Procesando con Vertex AI...</button>
-    </div>
-  </section>
+    <section>
+      <h3>1. Botón de Acción (IA)</h3>
+      <div style="display: flex; gap: 1rem;">
+        <button vf-button variant="primary">Auditar Documento</button>
+        <button vf-button variant="primary" [isLoading]="true">Procesando con Vertex AI...</button>
+      </div>
+    </section>
 
-  <section>
-    <h3>2. Badges de Estado</h3>
-    <div style="display: flex; gap: 1rem;">
-      <vf-badge variant="success">Auto Approved</vf-badge>
-      <vf-badge variant="warning">Flagged for Review</vf-badge>
-      <vf-badge variant="danger">Rejected</vf-badge>
-      <vf-badge variant="secondary">Draft</vf-badge>
-    </div>
-  </section>
+    <section>
+      <h3>2. Badges de Estado</h3>
+      <div style="display: flex; gap: 1rem;">
+        <vf-badge variant="success">Auto Approved</vf-badge>
+        <vf-badge variant="warning">Flagged for Review</vf-badge>
+        <vf-badge variant="danger">Rejected</vf-badge>
+        <vf-badge variant="secondary">Draft</vf-badge>
+      </div>
+    </section>
 
-  <section>
-    <h3>3. Skeleton Loader</h3>
-    <article vf-card>
-      <div vf-card-header style="display: flex; align-items: center; gap: 1rem;">
-        <vf-skeleton shape="circle"></vf-skeleton>
-        <div style="flex: 1;">
-          <vf-skeleton shape="text" style="width: 60%;"></vf-skeleton>
-          <vf-skeleton shape="text" style="width: 40%;"></vf-skeleton>
+    <section>
+      <h3>3. Skeleton Loader</h3>
+      <article vf-card>
+        <div vf-card-header style="display: flex; align-items: center; gap: 1rem;">
+          <vf-skeleton shape="circle"></vf-skeleton>
+          <div style="flex: 1;">
+            <vf-skeleton shape="text" style="width: 60%;"></vf-skeleton>
+            <vf-skeleton shape="text" style="width: 40%;"></vf-skeleton>
+          </div>
         </div>
+
+        <div style="margin-top: 1rem;">
+          <vf-skeleton shape="rect" style="height: 100px;"></vf-skeleton>
+        </div>
+      </article>
+    </section>
+
+  </div>
+
+
+  <div style="margin: 2rem; max-width: 400px;" #formContainer>
+    <vf-badge variant="ghost">TESTING ------------------------------------------- FORMS</vf-badge>
+    <form [formGroup]="miFormulario" (ngSubmit)="verDatos()">
+
+      <div style="margin-bottom: 1.5rem;">
+        <h4>Proveedor Cloud</h4>
+        <vf-radio-group formControlName="nube" orientation="vertical">
+          <vf-radio value="vertexai">Vertex AI</vf-radio>
+          <vf-radio value="googlecloud">Google Cloud</vf-radio>
+        </vf-radio-group>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h4>País de despliegue</h4>
+        <vf-select formControlName="pais" placeholder="Selecciona un país">
+          <vf-option value="es">España</vf-option>
+          <vf-option value="fr">Francia</vf-option>
+          <vf-option value="it">Italia</vf-option>
+        </vf-select>
       </div>
       
-      <div style="margin-top: 1rem;">
-        <vf-skeleton shape="rect" style="height: 100px;"></vf-skeleton>
+      <div style="margin-bottom: 1.5rem;">
+        <vf-input-form-field variant="secondary">
+          <input vf-input formControlName="empresa" type="text" placeholder="Empresa" />
+        </vf-input-form-field>
       </div>
-    </article>
-  </section>
+      <!-- <div style="margin-bottom: 1.5rem;">
+        <vf-input-form-field formControlName="empresa" variant="secondary">
+          <input vf-input type="text" placeholder="Empresa" />
+        </vf-input-form-field>
+      </div> -->
+      
+      <div style="margin-bottom: 1.5rem;">
+        <vf-checkbox formControlName="aceptaTerminos">
+          Acepto procesar los datos con IA
+        </vf-checkbox>
+      </div>
 
-</div>
+      <button vf-button variant="primary" type="submit">Enviar a Vertex AI</button>
+
+    </form>
+
+    <pre style="margin-top: 2rem; background: #f4f4f4; padding: 1rem;">
+    {{ miFormulario.value | json }}
+  </pre>
+  </div>
 
 </main>
 

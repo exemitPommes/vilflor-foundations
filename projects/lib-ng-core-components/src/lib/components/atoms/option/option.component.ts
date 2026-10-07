@@ -24,7 +24,7 @@ export class OptionComponent extends CoreInteractiveComponentBase {
     readonly optionPosition = computed(() => this._select.options().indexOf(this));
 
     readonly isActive = computed(() => this.optionPosition() === this._select.activeIndex());
-    readonly isSelected = computed(() => this.value() === this._select.currentValue());
+    readonly isSelected = computed(() => this.value() === this._select.value());
 
     handleOptionSelected(): void {
         if (this.isDisabled()) {
