@@ -1,0 +1,61 @@
+@use '../../../styles/mixins' as *;
+
+:host {
+  @include core-typography;
+  display: block;
+  width: 100%;
+
+  &.vf-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.vf-dropzone-active .vf-dropzone-wrapper {
+    border-color: var(--core-color-primary);
+    background-color: var(--core-color-ghost-hover);
+  }
+}
+
+.vf-dropzone-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--core-space-32) var(--core-space-16);
+  border: 2px dashed var(--core-color-border);
+  border-radius: var(--core-radius-lg);
+  background-color: var(--core-color-background-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--core-color-primary);
+    background-color: var(--core-color-ghost-hover);
+  }
+}
+
+.vf-dropzone-native {
+  display: none;
+}
+
+.vf-dropzone-content {
+  text-align: center;
+}
+
+.vf-dropzone-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--core-color-text-muted);
+  margin-bottom: var(--core-space-12);
+}
+
+.vf-dropzone-text {
+  margin: 0 0 var(--core-space-4) 0;
+  color: var(--core-color-text);
+}
+
+.vf-dropzone-hint {
+  margin: 0;
+  font-size: var(--core-font-size-sm);
+  color: var(--core-color-text-muted);
+}
