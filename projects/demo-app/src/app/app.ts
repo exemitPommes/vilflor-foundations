@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
-import { ButtonComponent, CardComponent, CheckboxComponent, InputDirective, InputFormFieldComponent, OptionComponent, RadioComponent, RadioGroupComponent, SelectComponent, SkeletonComponent, BadgeComponent, DropzoneComponent } from 'lib-ng-core-components';
+import { ButtonComponent, CardComponent, CheckboxComponent, InputDirective, InputFormFieldComponent, OptionComponent, RadioComponent, RadioGroupComponent, SelectComponent, SkeletonComponent, BadgeComponent, DropzoneComponent, AlertComponent } from 'lib-ng-core-components';
 import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, JsonPipe, ReactiveFormsModule, ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent, SkeletonComponent, BadgeComponent, DropzoneComponent],
+  imports: [RouterOutlet, JsonPipe, ReactiveFormsModule, ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent, SkeletonComponent, BadgeComponent, DropzoneComponent, AlertComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -17,6 +17,8 @@ export class App {
   readonly checkboxSelected = false;
   readonly nubeSeleccionada = 'googlecloud';
   public fileTransfered: File | null = null;
+  public alertTime = false;
+  public alertContent = signal('');
 
   miFormulario = new FormGroup({
     nube: new FormControl('vertexai'),
@@ -49,6 +51,8 @@ export class App {
   }
 
   protected mostrarAlertaRoja(alerta: string): void {
+    this.alertTime = true;
+    this.alertContent.set(alerta);
     console.log(alerta);
   }
 }
