@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { CoreVisualComponentBase } from '../../../utils/core-visual-component-base';
 
 @Component({
     selector: 'vf-splitter',
@@ -8,6 +9,7 @@ import { Component, input } from '@angular/core';
     host: {
         '[style.--vf-split-ratio]': 'ratio()'
     }
-}) export class SplitterComponent {
+}) export class SplitterComponent extends CoreVisualComponentBase {
+    // Currently a visual component - further functionality will be implemented
     readonly ratio = input<string>('1fr 1fr'); 
 }

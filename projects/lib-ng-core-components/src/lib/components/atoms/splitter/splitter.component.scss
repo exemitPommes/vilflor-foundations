@@ -18,12 +18,10 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
-  
-  cursor: col-resize; 
+
+  /* cursor: col-resize; */
 
   &:hover {
-    background-color: var(--core-color-primary);
-    
     .vf-split-divider-handle {
       background-color: var(--core-color-text-inverse);
     }
