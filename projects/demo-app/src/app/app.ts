@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
-import { ButtonComponent, CardComponent, CheckboxComponent, InputDirective, InputFormFieldComponent, OptionComponent, RadioComponent, RadioGroupComponent, SelectComponent, SkeletonComponent, BadgeComponent, DropzoneComponent, AlertComponent } from 'lib-ng-core-components';
+import { ButtonComponent, CardComponent, CheckboxComponent, InputDirective, InputFormFieldComponent, OptionComponent, RadioComponent, RadioGroupComponent, SelectComponent, SkeletonComponent, BadgeComponent, DropzoneComponent, AlertComponent, SplitterComponent } from 'lib-ng-core-components';
 import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, JsonPipe, ReactiveFormsModule, ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent, SkeletonComponent, BadgeComponent, DropzoneComponent, AlertComponent],
+  imports: [RouterOutlet, JsonPipe, ReactiveFormsModule, ButtonComponent, CardComponent, InputDirective, InputFormFieldComponent, OptionComponent, SelectComponent, CheckboxComponent, RadioComponent, RadioGroupComponent, SkeletonComponent, BadgeComponent, DropzoneComponent, AlertComponent, SplitterComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
