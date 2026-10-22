@@ -10,24 +10,33 @@
   background-color: var(--core-color-background-muted);
 
   &.core-variant-danger {
-    background-color: #fef2f2;
-    border-color: #f87171;
-    color: #991b1b;
-    .vf-alert-icon { color: #ef4444; }
+    background-color: var(--core-semantic-danger-subtle);
+    border-color: var(--core-semantic-danger-border);
+    color: var(--core-semantic-danger-text);
+
+    .vf-alert-icon {
+      color: var(--core-semantic-danger);
+    }
   }
 
   &.core-variant-warning {
-    background-color: #fffbeb;
-    border-color: #fbbf24;
-    color: #92400e;
-    .vf-alert-icon { color: #f59e0b; }
+    background-color: var(--core-semantic-warning-subtle);
+    border-color: var(--core-semantic-warning-border);
+    color: var(--core-semantic-warning-text);
+
+    .vf-alert-icon {
+      color: --core-semantic-warning;
+    }
   }
 
   &.core-variant-success {
-    background-color: #ecfdf5;
-    border-color: #34d399;
-    color: #065f46;
-    .vf-alert-icon { color: #10b981; }
+    background-color: var(--core-semantic-success-subtle);
+    border-color: var(--core-semantic-success-border);
+    color: var(--core-semantic-success-text);
+
+    .vf-alert-icon {
+      color: var(--core-semantic-success);
+    }
   }
 }
 

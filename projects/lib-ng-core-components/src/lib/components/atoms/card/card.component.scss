@@ -6,7 +6,7 @@
   flex-direction: column;
   border: 1px solid var(--core-color-border);
   border-radius: var(--core-radius-lg);
-  background-color: var(--core-color-background);
+  background-color: var(--core-color-background-card);
   overflow: hidden;
   box-shadow: var(--core-shadow-sm);
 
@@ -63,13 +63,13 @@
 
 .vf-card-body-container {
   color: var(--core-color-text);
-  background-color: var(--core-color-background);
+  background-color: var(--core-color-background-card);
   flex-grow: 1;
 }
 
 .vf-card-footer-container {
   border-top: 1px solid var(--core-color-border);
-  background-color: var(--core-color-background);
+  background-color: var(--core-color-background-card);
   font-size: var(--core-font-size-xs);
 }
 

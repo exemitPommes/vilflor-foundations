@@ -8,7 +8,7 @@
     &.vf-disabled {
         opacity: 0.5;
         pointer-events: none;
-        
+
         .vf-checkbox-wrapper {
             cursor: not-allowed;
         }
@@ -39,10 +39,10 @@
     height: 0;
 
     &:checked {
-        + .vf-checkbox-box {
+        +.vf-checkbox-box {
             background-color: var(--core-color-primary);
             border-color: var(--core-color-primary);
-            
+
             .vf-checkbox-tick {
                 opacity: 1;
                 transform: scale(1);
@@ -51,7 +51,7 @@
     }
 
     &:focus-visible {
-        + .vf-checkbox-box {
+        +.vf-checkbox-box {
             @include core-focus-ring;
         }
     }
@@ -60,13 +60,19 @@
 .vf-checkbox-label {
     padding: var(--core-no-space) var(--core-space-12);
     align-content: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .vf-checkbox-tick {
     width: 80%;
     height: 80%;
     color: var(--core-color-text-inverse);
-    
+
     opacity: 0;
     transform: scale(0.5);
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
