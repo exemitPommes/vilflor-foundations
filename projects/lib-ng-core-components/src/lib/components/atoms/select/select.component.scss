@@ -12,7 +12,7 @@
     justify-content: space-between;
     width: 100%;
 
-    background: transparent;
+    background: var(--core-color-background);
     text-align: left;
 
     border: 2px solid var(--core-color-border);
@@ -37,8 +37,8 @@
     }
 
     &:focus-visible {
-    @include core-focus-ring;
-  }
+        @include core-focus-ring;
+    }
 }
 
 .vf-select-icon {

@@ -7,24 +7,17 @@
     background-color: transparent;
     display: block;
     overflow: hidden;
+    color: var(--core-color-text);
 
     &:active {
-        &.core-variant-primary {
-            background-color: var(--core-color-primary-active);
-        }
-
-        &.core-variant-secondary {
-            background-color: var(--core-color-secondary-active);
-        }
+        background-color: var(--core-color-primary-active);
     }
     
     &.vf-option-selected {
-        &.core-variant-primary {
-            background-color: var(--core-color-primary);
-        }
-    
-        &.core-variant-secondary {
-            background-color: var(--core-color-secondary);
+        background-color: var(--core-color-primary);
+        color: var(--core-color-background-card);
+        &:hover {
+            background-color: var(--core-color-primary-hover);
         }
     }
 
@@ -36,12 +29,7 @@
     }
     
     &.vf-option-active {
-        &.core-variant-primary {
-            background-color: var(--core-color-primary-hover);
-        }
-    
-        &.core-variant-secondary {
-            background-color: var(--core-color-secondary-hover);
-        }
+        background-color: var(--core-color-primary-hover);
+        color: var(--core-color-background-card);
     }
 }

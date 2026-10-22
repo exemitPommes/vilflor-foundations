@@ -6,7 +6,7 @@
     align-items: center;
     border: 2px solid var(--core-color-border);
     border-radius: var(--core-radius-md);
-    background-color: transparent;
+    background-color: var(--core-color-background);
 
     &.core-variant-primary {
         border-color: var(--core-color-primary);
@@ -29,7 +29,13 @@
     }
 
     &:hover:not(.vf-form-field-disabled):not(.vf-form-field-focused) {
-        border-color: var(--core-color-primary-hover);
+        &.core-variant-primary {
+            border-color: var(--core-color-primary-hover);
+        }
+        
+        &.core-variant-secondary {
+            border-color: var(--core-color-secondary-hover);
+        }
     }
 }
 

@@ -14,8 +14,19 @@
     </button>
   </div>
 
-  <div #cardContainer style="width: 400px; margin: 2rem; height: 400px;">
+  <div #cardContainer style="width: 400px; margin: 2rem; height: 500px; display: -webkit-box;">
     <vf-card variant="primary" size="lg">
+      <ng-container vf-card-header>Main title</ng-container>
+      <ng-container>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+        industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St
+        Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for
+        Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic
+        typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with
+        desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem
+        Ipsum.</ng-container>
+      <ng-container vf-card-footer>Just a footer minding it's own business</ng-container>
+    </vf-card>
+    <vf-card variant="secondary" size="lg" style="margin-left: 2rem;">
       <ng-container vf-card-header>Main title</ng-container>
       <ng-container>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
         industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St
@@ -31,13 +42,17 @@
   <div #inputContainer style="margin: 2rem; width: 300px; display: inline-block;">
     <vf-input-form-field variant="primary">
       <ng-container vf-pre-input>
-        <span> 😃 </span>
+        <span> 〄 </span>
       </ng-container>
       <ng-container vf-post-input>
         <span> HUH </span>
       </ng-container>
       <!-- <input vf-input type="number" placeholder="no clue" /> -->
       <input vf-input type="number" placeholder="no clue" [isDisabled]="false" />
+    </vf-input-form-field>
+    <vf-input-form-field variant="secondary" style="margin-top: 1rem;">
+      <!-- <input vf-input type="number" placeholder="no clue" /> -->
+      <input vf-input type="text" [isDisabled]="false" />
     </vf-input-form-field>
   </div>
 
@@ -70,6 +85,9 @@
     <vf-checkbox variant="primary" [(value)]="checkboxSelected" [isDisabled]="false" (valueChange)="checkingCheckbox()">
       Mi primito checkbox
     </vf-checkbox>
+    <vf-checkbox variant="secondary" [(value)]="checkboxSelected" [isDisabled]="true" style="margin-left: 1rem;">
+      Mi primito lejano checkbox
+    </vf-checkbox>
   </div>
 
   <div #radioContainer style="margin: 2rem;">
@@ -84,16 +102,23 @@
       <vf-radio value="vertexai">VertexAI</vf-radio>
       <vf-radio value="googlecloud" [isDisabled]="false">Google Cloud</vf-radio>
     </vf-radio-group>
+    <vf-radio-group [(value)]="nubeSeleccionada" name="proveedorNube2" [isDisabled]="false"
+      orientation="horizontal" variant="secondary">
+      <vf-radio value="vertexai">VertexAI</vf-radio>
+      <vf-radio value="googlecloud" [isDisabled]="false">Google Cloud</vf-radio>
+    </vf-radio-group>
   </div>
 
   <div #dropzoneContainer style="margin: 2rem;">
-    <vf-dropzone variant="secondary" [multiple]="false" [maxFileSizeMb]="10" (fileSelected)="fichero($event)"
+    <vf-dropzone variant="primary" [multiple]="false" [maxFileSizeMb]="10" (fileSelected)="fichero($event)"
       (errorOccurred)="mostrarAlertaRoja($event)">
     </vf-dropzone>
   </div>
 
   <div #alertContainer style="margin: 2rem;">
+    <vf-alert variant="success">Alertando con alertas</vf-alert>
     <vf-alert variant="warning">Alertando con alertas</vf-alert>
+    <vf-alert variant="danger">Alertando con alertas</vf-alert>
   </div>
 
   <div style="margin: 2rem; max-width: 500px; display: flex; flex-direction: column; gap: 2rem;" #captsoneElements>
@@ -137,7 +162,7 @@
 
 
   <div style="margin: 2rem; max-width: 400px;" #formContainer>
-    <vf-badge variant="secondary">TESTING ------------------------------------------- FORMS</vf-badge>
+    <vf-badge variant="primary">TESTING ------------------------------------------- FORMS</vf-badge>
     <form [formGroup]="miFormulario" (ngSubmit)="verDatos()">
 
       <div style="margin-bottom: 1.5rem;">

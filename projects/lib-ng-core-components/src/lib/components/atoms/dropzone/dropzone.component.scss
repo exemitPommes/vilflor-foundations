@@ -22,14 +22,14 @@
   align-items: center;
   justify-content: center;
   padding: var(--core-space-32) var(--core-space-16);
-  border: 2px dashed var(--core-color-border);
+  border: 2px dashed var(--core-color-primary);
   border-radius: var(--core-radius-lg);
   background-color: var(--core-color-background-muted);
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: var(--core-color-primary);
+    border-color: var(--core-color-primary-hover);
     background-color: var(--core-color-ghost-hover);
   }
 }
@@ -45,7 +45,7 @@
 .vf-dropzone-icon {
   width: 48px;
   height: 48px;
-  color: var(--core-color-text-muted);
+  //: var(--core-color-text-muted);
   margin-bottom: var(--core-space-12);
 }
 
